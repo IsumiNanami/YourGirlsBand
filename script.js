@@ -2,9 +2,29 @@
 const moneyElement = document.querySelector('.money strong');
 const cardElements = document.querySelectorAll('.card');
 const slotElements = document.querySelectorAll('.slot');
-// 获取“收起”按钮和乐队部分的 footer
+
+// 获取收起按钮和乐队区域
 const collectButton = document.querySelector('.collect-button');
 const bandContainer = document.querySelector('.band-container');
+
+// 初始状态：展开
+bandContainer.classList.add('expanded');
+
+// 点击按钮切换收起/展开状态
+collectButton.addEventListener('click', () => {
+  if (bandContainer.classList.contains('expanded')) {
+    // 收起
+    bandContainer.classList.remove('expanded');
+    bandContainer.classList.add('collapsed');
+    collectButton.textContent = '展开'; // 更新按钮文字
+  } else {
+    // 展开
+    bandContainer.classList.remove('collapsed');
+    bandContainer.classList.add('expanded');
+    collectButton.textContent = '收起'; // 更新按钮文字
+  }
+});
+
 
 
 
@@ -58,17 +78,4 @@ cardElements.forEach(card => {
       alert('金钱不足，无法选择此乐手！');
     }
   });
-});
-
-
-// 点击“收起”按钮时隐藏乐队部分
-collectButton.addEventListener('click', () => {
-  // 切换隐藏类
-  bandContainer.classList.toggle('hidden');
-  // 更新按钮文字
-  if (bandContainer.classList.contains('hidden')) {
-    collectButton.textContent = '展开';
-  } else {
-    collectButton.textContent = '收起';
-  }
 });

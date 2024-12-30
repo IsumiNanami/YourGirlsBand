@@ -133,24 +133,45 @@ header {
 }
 
 .band-container {
-  position: fixed; /* 固定在屏幕底部 */
+  position: fixed;
   bottom: 0;
   left: 0;
-  width: 100%; /* 占据整个宽度 */
+  width: 97.5%; /* 宽度占满屏幕 */
   background-color: #fff;
   border-top: 2px solid #ddd;
   box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+  transition: height 0.3s ease; /* 平滑动画效果 */
+  z-index: 1000;
   padding: 10px 20px;
-  z-index: 1000; /* 确保位于最上方 */
-  transition: transform 0.3s ease; /* 添加动画效果 */
 }
 
-.band-container.hidden {
-  transform: translateY(100%); /* 向下隐藏 */
+.band-container.collapsed {
+  height: 100px; /* 只露出按钮的高度 */
+}
+
+.band-container.expanded {
+  height: 300px; /* 展开时的高度，可以根据需求调整 */
+}
+
+.collect-button {
+  display: block;
+  margin: 5px auto;
+  font-size: 16px;
+  font-weight: bold;
+  color: white;
+  background-color: #007bff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.collect-button:hover {
+  background-color: #0056b3;
 }
 
 .band-container h3 {
-  font-size: 16px;
+  font-size: 20px;
   color: #444;
   margin-bottom: 10px;
 }
