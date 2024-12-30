@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>少女乐队组建</title>
+  <link rel="stylesheet" href="styles.css"> <!-- 引入外部CSS -->
+</head>
+
+<body>
+  <header>
+    <h1>少女乐队组建</h1>
+  </header>
+
+  <div class="container">
+    <!-- 显示剩余金钱和收起按钮 -->
+    <div class="money">
+      现在你有 <strong>15</strong> 💰，组建乐队吧！
+      <button class="collect-button">收起</button>
+    </div>
+
+    <!-- 卡牌选择区域 -->
+    <div class="section">
+      <h3>可选成员卡牌：</h3>
+
+      <!-- 5元区 -->
+      <div class="card-row">
+        <h4>5 💰区</h4>
+        <div class="card" data-cost="5">
+          <img src="https://pic3.zhimg.com/100/v2-0e411b46e9f5f01b3b2bfb97dafb4902_r.jpg" alt="后藤一里">
+          <div class="name">后藤一里</div>
+        </div>
+        <div class="card" data-cost="5">
+          <img src="https://pic2.zhimg.com/100/v2-eb0a8cc629ab3093e7e9531600546567_r.jpg" alt="丰川祥子">
+          <div class="name">丰川祥子</div>
+        </div>
+        <div class="card" data-cost="5">
+          <img src="https://pic3.zhimg.com/100/v2-f42cf82b76941f8e21aa1a2d0f5d7d8c_r.jpg" alt="河原木桃香">
+          <div class="name">河原木桃香</div>
+        </div>
+        <div class="card" data-cost="5">
+          <img src="https://i.postimg.cc/pTqkx83s/temp-Image-WWp-Rfj.avif" alt="秋山澪">
+          <div class="name">秋山澪</div>
+        </div>
+      </div>
+
+      <!-- 4元区 -->
+      <div class="card-row">
+        <h4>4 💰区</h4>
+        <div class="card" data-cost="4">
+          <img src="https://i.postimg.cc/Hxk5HNwy/temp-Image63-Aqn-Q.avif" alt="井芹仁菜">
+          <div class="name">井芹仁菜</div>
+        </div>
+        <div class="card" data-cost="4">
+          <img src="https://i.postimg.cc/XY99gdNp/temp-Imageq6skps.avif" alt="高松灯">
+          <div class="name">高松灯</div>
+        </div>
+        <div class="card" data-cost="4">
+          <img src="https://i.postimg.cc/pdxzcryk/temp-Imagep-UZOu-U.avif" alt="平泽唯">
+          <div class="name">平泽唯</div>
+        </div>
+        <div class="card" data-cost="4">
+          <img src="https://i.postimg.cc/28s4v2Ds/temp-Imagex-OQrn-Z.avif" alt="要乐奈">
+          <div class="name">要乐奈</div>
+        </div>
+        <div class="card" data-cost="4">
+          <img src="https://i.postimg.cc/nLcYcMZr/temp-Image5l9-We7.avif" alt="山田凉">
+          <div class="name">山田凉</div>
+        </div>
+      </div>
+
+      <!-- 3元区 -->
+      <div class="card-row">
+        <h4>3 💰区</h4>
+        <div class="card" data-cost="3">
+          <img src="https://pic4.zhimg.com/100/v2-6e70fcb97eb87e10f40b956fb03cf2bb_r.jpg" alt="椎名立希">
+          <div class="name">椎名立希</div>
+        </div>
+        <div class="card" data-cost="3">
+          <img src="https://pica.zhimg.com/100/v2-5edce1d711fe355d84c0560dd52fcfe8_r.jpg" alt="琴吹䌷">
+          <div class="name">琴吹䌷</div>
+        </div>
+        <div class="card" data-cost="3">
+          <img src="https://picx.zhimg.com/100/v2-5832b8975510acc59e4e79cf89f30221_r.jpg" alt="广井菊理">
+          <div class="name">广井菊理</div>
+        </div>
+        <div class="card" data-cost="3">
+          <img src="https://pic4.zhimg.com/100/v2-59cf4890ff7d350115822ff738be2785_r.jpg" alt="若叶睦">
+          <div class="name">若叶睦</div>
+        </div>
+        <div class="card" data-cost="3">
+          <img src="https://pic3.zhimg.com/100/v2-563cdfc44556e5265b0ccfc41bd842ae_r.jpg" alt="海老冢智">
+          <div class="name">海老冢智</div>
+        </div>
+      </div>
+
+      <!-- 2元区 -->
+      <div class="card-row">
+        <h4>2 💰区</h4>
+        <div class="card" data-cost="2">
+          <img src="https://pic4.zhimg.com/100/v2-04936e4f12d87e269b3eadfcb589f44d_r.jpg" alt="伊之地虹夏">
+          <div class="name">伊之地虹夏</div>
+        </div>
+        <div class="card" data-cost="2">
+          <img src="https://pic2.zhimg.com/100/v2-8c3df74547ca1026ec5a221adca7de1b_r.jpg" alt="喜多郁代">
+          <div class="name">喜多郁代</div>
+        </div>
+        <div class="card" data-cost="2">
+          <img src="https://pic2.zhimg.com/100/v2-190a150d9f8859df910bcad4a93c8017_r.jpg" alt="长崎素世">
+          <div class="name">长崎素世</div>
+        </div>
+        <div class="card" data-cost="2">
+          <img src="https://pic2.zhimg.com/100/v2-bb0b7bb332655fe8fa523a6e6ba054c1_r.jpg" alt="RUPA">
+          <div class="name">RUPA</div>
+        </div>
+        <div class="card" data-cost="2">
+          <img src="https://picx.zhimg.com/100/v2-7496a974d03a9041fb5adecb56462c39_r.jpg" alt="中野梓">
+          <div class="name">中野梓</div>
+        </div>
+      </div>
+
+      <!-- 1元区 -->
+      <div class="card-row">
+        <h4>1 💰区</h4>
+        <div class="card" data-cost="1">
+          <img src="https://pic2.zhimg.com/100/v2-d044469e577f71cea1b92b14709123eb_r.jpg" alt="安和昴">
+          <div class="name">安和昴</div>
+        </div>
+        <div class="card" data-cost="1">
+          <img src="https://pic3.zhimg.com/100/v2-c26ad20c863ff9759129ef5df89df67c_r.jpg" alt="田井中律">
+          <div class="name">田井中律</div>
+        </div>
+        <div class="card" data-cost="1">
+          <img src="https://picx.zhimg.com/100/v2-1a4ee77829b603add2399439525e7d49_r.jpg" alt="千早爱音">
+          <div class="name">千早爱音</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="money">
+      要求：<br />
+      1️⃣ 必须具有一位主唱、一位吉他手、一位鼓手、一位贝斯手<br />
+      2️⃣ 同时必须有作词、作曲担当<br />
+      3️⃣ 不可重复选择<br />
+      4️⃣ 可剩💰<br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      Note：图片来源于网络，角色价格来源于网络图片，并不并不并不并不并不代表作者观点
+
+
+    </div>
+
+  </div>
+
+  <!-- 固定底部的乐队部分 -->
+  <footer class="band-container">
+    <h3>组建你的少女乐队：</h3>
+    <div class="drop-zone">
+      <div class="slot"></div>
+      <div class="slot"></div>
+      <div class="slot"></div>
+      <div class="slot"></div>
+      <div class="slot"></div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script> <!-- 引入外部JS -->
+</body>
+
+</html>

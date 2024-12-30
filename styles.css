@@ -1,0 +1,156 @@
+/* styles.css */
+
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #fff5fd; /* 浅灰背景色 */
+  color: #333;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background-color: #011c3aee; /* 主色调：蓝色 */
+  color: white;
+  text-align: center;
+  padding: 15px 0;
+  font-size: 24px;
+  font-weight: bold;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2); /* 添加文字阴影 */
+}
+
+.container {
+  max-width: 1000px;
+  margin: 20px auto;
+  padding: 20px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+.money {
+  font-size: 20px;
+  color: #444;
+  margin-bottom: 20px;
+}
+.section {
+  margin-bottom: 30px;
+}
+.card-row {
+  display: flex;
+  flex-wrap: wrap; /* 使卡片换行 */
+  gap: 15px; /* 每张卡片之间的间距 */
+  margin-bottom: 20px; /* 每个区域之间的间隔 */
+}
+
+.card-row h4 {
+  font-size: 18px;
+  color: #000000; /* 主色调 */
+  margin-bottom: 10px;
+  border-left: 4px solid #3b3239; /* 左侧边框 */
+  padding-left: 8px;
+}
+
+
+.card {
+  width: 120px;
+  height: 200px;
+  border: 2px solid #ddd; /* 卡牌边框 */
+  border-radius: 10px; /* 圆角 */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* 卡牌阴影 */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background-color: white; /* 白色背景 */
+  transition: transform 0.3s, box-shadow 0.3s; /* 添加动画效果 */
+  cursor: pointer;
+}
+
+.card:hover {
+  transform: translateY(-5px); /* 悬浮时上移 */
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2); /* 增强阴影 */
+}
+
+.card img {
+  width: 100;
+  height: 180px;
+  border-radius: 10px; /* 图片圆角 */
+}
+
+.card .name {
+  font-size: 14px;
+  font-weight: bold;
+  color: #444;
+  text-align: center;
+}
+
+.card .value {
+  font-size: 14px;
+  font-weight: bold;
+  color: #007bff; /* 主色调 */
+}
+
+.drop-zone {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  justify-content: space-around;
+  border: 2px dashed #bbb;
+  border-radius: 8px;
+  padding: 20px;
+  background-color: #fafafa;
+}
+.drop-zone .slot {
+  width: 80px;
+  height: 120px;
+  border: 2px dashed #ddd;
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f4f4f4;
+}
+
+.drop-zone .slot img {
+  width: 100%; 
+  height: 100%;   
+  object-fit: cover;
+}
+.collect-button {
+  display: block;
+  margin: 20px auto;
+  padding: 10px 20px;
+  font-size: 16px;
+  color: white;
+  background-color: #47617a;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  text-align: center;
+}
+.collect-button:hover {
+  background-color: #0056b3;
+}
+
+.band-container {
+  position: fixed; /* 固定在屏幕底部 */
+  bottom: 0;
+  left: 0;
+  width: 100%; /* 占据整个宽度 */
+  background-color: #fff;
+  border-top: 2px solid #ddd;
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+  padding: 10px 20px;
+  z-index: 1000; /* 确保位于最上方 */
+  transition: transform 0.3s ease; /* 添加动画效果 */
+}
+
+.band-container.hidden {
+  transform: translateY(100%); /* 向下隐藏 */
+}
+
+.band-container h3 {
+  font-size: 16px;
+  color: #444;
+  margin-bottom: 10px;
+}
