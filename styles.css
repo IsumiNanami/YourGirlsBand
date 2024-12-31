@@ -90,6 +90,21 @@ header {
   color: #007bff; /* 主色调 */
 }
 
+.tooltip {
+  max-width: 200px;
+  word-wrap: break-word;
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  transition: opacity 0.2s ease-in-out; /* 增加平滑过渡效果 */
+  display: none;  /* 默认隐藏 */
+  font-size: 18px;
+  z-index: 100;
+}
+
 .drop-zone {
   display: flex;
   flex-wrap: wrap;
@@ -116,21 +131,7 @@ header {
   height: 100%;   
   object-fit: cover;
 }
-.collect-button {
-  display: block;
-  margin: 20px auto;
-  padding: 10px 20px;
-  font-size: 16px;
-  color: white;
-  background-color: #47617a;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  text-align: center;
-}
-.collect-button:hover {
-  background-color: #0056b3;
-}
+
 
 .band-container {
   position: fixed;
@@ -155,7 +156,8 @@ header {
 
 .collect-button {
   display: block;
-  margin: 5px auto;
+  margin: 20px auto;
+  padding: 10px 20px;
   font-size: 16px;
   font-weight: bold;
   color: white;
