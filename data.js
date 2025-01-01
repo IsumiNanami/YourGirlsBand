@@ -76,7 +76,7 @@ const members = [
       name: "山田凉",
       roles: ["Bass"],
       lyricist: false,
-      composer: false,
+      composer: true,
       cost: 4,
       selected: false,
       imgSrc: "https://i.postimg.cc/nLcYcMZr/temp-Image5l9-We7.avif"

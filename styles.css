@@ -18,6 +18,11 @@ header {
 }
 
 .container {
+  display: flex;
+  flex-direction: column; /* 将子元素垂直排列 */
+  justify-content: center; /* 垂直方向居中 */
+  align-items: center; /* 水平方向居中 */
+  text-align: center; /* 使标题和按钮都居中 */
   max-width: 1000px;
   margin: 20px auto;
   padding: 20px;
@@ -245,4 +250,25 @@ footer.band-container .drop-zone .slot img {
   width: 100%;
   height: auto;
   border-radius: 10px;
+}
+.confirm-button-container {
+  text-align: center;
+  margin-top: 20px;
+}
+
+#start-game-btn {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  color: white;
+  background-color: #007bff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+#start-game-btn:hover {
+  background-color: #45a049;
 }
