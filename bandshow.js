@@ -21,5 +21,5 @@ if (bandMembers && bandMembers.length > 0) {
 
 // 获取“开始游戏”按钮并添加跳转事件
 document.getElementById('start-game-btn').onclick = function() {
-  window.location.href = 'gamepage.html';  // 跳转到游戏页面
+  window.location.href = 'gamePage.html';  // 跳转到游戏页面
 };
