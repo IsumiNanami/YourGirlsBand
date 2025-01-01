@@ -28,49 +28,36 @@ const cards = [
 
 
 // 游戏状态初始化
-let month = 1; // 从第1月开始
-let usedCards = [];
-let status = {
+let month = 1;
+let usedCardsIn10Months = [];
+let bandStatus = {
     strength: 10,
     money: 10,
     stability: 10,
     popularity: 10
 };
 
+// 存储已记录的日志，以避免重复记录
+let loggedStats = new Set();
+
 // 随机选择一张卡牌，并确保不重复
 function getRandomCard() {
-    const remainingCards = cards.filter(card => !usedCards.includes(card));
+    const remainingCards = cards.filter(card => !usedCardsIn10Months.includes(card));
+    
     if (remainingCards.length === 0) {
         endGame();
         return;
     }
+
     const randomIndex = Math.floor(Math.random() * remainingCards.length);
     const card = remainingCards[randomIndex];
-    usedCards.push(card);
+    usedCardsIn10Months.push(card);
+
+    if (usedCardsIn10Months.length > 10) {
+        usedCardsIn10Months.shift();
+    }
+
     return card;
-}
-
-// 更新页面状态
-function updateStatus() {
-    document.getElementById("month-display").textContent = `第${month}月`;
-    document.getElementById("strength").textContent = status.strength;
-    document.getElementById("money").textContent = status.money;
-    document.getElementById("stability").textContent = status.stability;
-    document.getElementById("popularity").textContent = status.popularity;
-}
-
-// 处理玩家选择
-function handleChoice(option) {
-    const effects = option.effect;
-    for (let stat in effects) {
-        status[stat] += effects[stat];
-    }
-    month++;
-    const nextCard = getRandomCard();
-    if (nextCard) {
-        displayCard(nextCard);
-    }
-    updateStatus();
 }
 
 // 显示卡牌内容
@@ -81,15 +68,90 @@ function displayCard(card) {
     const yesButton = document.getElementById("yes-btn");
     const noButton = document.getElementById("no-btn");
 
-    // 确保按钮事件绑定
     yesButton.onclick = () => handleChoice(card.options[0]);
     noButton.onclick = () => handleChoice(card.options[1]);
+}
+
+// 更新页面状态
+function updateStatus() {
+    document.getElementById("month-display").textContent = `第${month}月`;
+
+    const statusElements = [
+        { elementId: "strength", value: bandStatus.strength, name: "strength" },
+        { elementId: "money", value: bandStatus.money, name: "money" },
+        { elementId: "stability", value: bandStatus.stability, name: "stability" },
+        { elementId: "popularity", value: bandStatus.popularity, name: "popularity" }
+    ];
+
+    let allZero = true; // 用于判断是否所有维度都降为0
+
+    statusElements.forEach(statusElement => {
+        const element = document.getElementById(statusElement.elementId);
+        const value = statusElement.value;
+
+        // 根据数值设置颜色
+        if (value >= 3 && value <= 5) {
+            element.style.color = 'orange'; // 黄色警告
+        } else if (value <= 2) {
+            element.style.color = 'red'; // 红色警告
+        } else {
+            element.style.color = 'green'; // 正常情况下为绿色
+        }
+
+        // 更新状态值
+        element.textContent = value;
+
+        // 检查是否有维度降到0并记录日志
+        if (value <= 0 && !loggedStats.has(statusElement.name)) {
+            addLogMessage(statusElement.name);
+            loggedStats.add(statusElement.name); // 确保每个属性只有第一次降到0时记录一次日志
+        }
+
+        // 检查是否所有维度都降到0
+        if (value > 0) {
+            allZero = false;
+        }
+    });
+
+    if (allZero) {
+        endGame();
+    }
+}
+
+// 记录日志
+function addLogMessage(statName) {
+    const logMessages = {
+        strength: "乐队的成员疏于练习，渐渐忘记了演奏的技巧，连最初的曲子都无法弹奏了，最后大家都不来排练了。",
+        money: "你们穷的叮当响，根本付不起搞音乐的钱，甚至连维持正常生活都成了问题，乐队成员们都去打工了，没人记得要排练的事情。",
+        stability: "你们大吵了一架，乐手们互相指责，最后爆发了一场巨大的冲突......乐队的成员从来就没有因为玩乐队而开心过。",
+        popularity: "没人关注你们，网络上都是你们的黑粉，你们的音乐再好别人也不会在乎了。"
+    };
+
+    const logList = document.getElementById("log-list");
+    const logItem = document.createElement("li");
+    logItem.textContent = logMessages[statName];
+    logList.appendChild(logItem);
+}
+
+// 处理玩家选择
+function handleChoice(option) {
+    const effects = option.effect;
+    for (let stat in effects) {
+        bandStatus[stat] += effects[stat];
+    }
+    month++;
+
+    const nextCard = getRandomCard();
+    if (nextCard) {
+        displayCard(nextCard);
+    }
+    updateStatus(); // 这里会触发检查是否有数值降到0
 }
 
 // 游戏结束
 function endGame() {
     alert("游戏结束！乐队的四个维度都降到0了。");
-    // 显示结果页面，可以添加更多结束逻辑
+    // 你可以在这里做一些额外的清理工作，例如重置游戏状态等
 }
 
 // 初始化游戏
@@ -101,3 +163,5 @@ function startGame() {
 
 // 页面加载后开始游戏
 window.onload = startGame;
+
+
