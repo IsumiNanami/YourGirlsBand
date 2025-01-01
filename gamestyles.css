@@ -64,3 +64,74 @@ button:hover {
 .status p {
     margin: 5px 0;
 }
+
+/* 日志区样式 */
+.game-log {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 300px;
+    max-height: 400px;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    overflow-y: auto; /* 使日志内容可以滚动 */
+  }
+  
+  .game-log h4 {
+    font-size: 18px;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+  
+  .log-messages {
+    font-size: 14px;
+    line-height: 1.5;
+  }
+  
+  /* 日志条目的样式 */
+  .log-entry {
+    margin-bottom: 10px;
+    padding: 8px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+  }
+  
+  /* 不同类型日志的背景色 */
+  .log-entry.info {
+    background-color: #2b7bec;
+  }
+  
+  .log-entry.success {
+    background-color: #28a745;
+  }
+  
+  .log-entry.warning {
+    background-color: #f39c12;
+  }
+  
+  .log-entry.error {
+    background-color: #e74c3c;
+  }
+  
+  /* 重新开始按钮样式 */
+.restart-button {
+    display: block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.restart-button:hover {
+    background-color: #0056b3;
+}

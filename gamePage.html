@@ -8,7 +8,7 @@
 </head>
 <body>
     <div class="game-container">
-        <h1>乐队管理游戏</h1>
+        <h1>你的乐队</h1>
         
         <!-- 月份显示 -->
         <div id="month-display" class="month-display">第1月</div>
@@ -31,11 +31,13 @@
         </div>
     </div>
 
-    <div id="log" style="font-family: Arial, sans-serif; margin-top: 20px;">
-        <h3>乐队日志</h3>
-        <ul id="log-list"></ul>
+    <!-- 游戏日志区 -->
+    <div class="game-log">
+        <h4>游戏日志</h4>
+        <div id="log-list" class="log-messages">
+      <!-- 日志信息会动态插入到这里 -->
+        </div>
     </div>
-    
     
     <script src="gamescript.js"></script>
 </body>

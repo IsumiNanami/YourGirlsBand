@@ -83,8 +83,7 @@ function updateStatus() {
         { elementId: "popularity", value: bandStatus.popularity, name: "popularity" }
     ];
 
-    let allZero = true; // 用于判断是否所有维度都降为0
-
+    // 判断是否有任何维度降到0
     statusElements.forEach(statusElement => {
         const element = document.getElementById(statusElement.elementId);
         const value = statusElement.value;
@@ -102,18 +101,16 @@ function updateStatus() {
         element.textContent = value;
 
         // 检查是否有维度降到0并记录日志
-        if (value <= 0 && !loggedStats.has(statusElement.name)) {
-            addLogMessage(statusElement.name);
+        if (value <= 0) {
+            addLogMessage(statusElement.name);  // 记录日志
             loggedStats.add(statusElement.name); // 确保每个属性只有第一次降到0时记录一次日志
         }
-
-        // 检查是否所有维度都降到0
-        if (value > 0) {
-            allZero = false;
-        }
+        console.log(value)
     });
 
-    if (allZero) {
+
+    // 检查是否有任何维度降到0
+    if (statusElements.some(stat => stat.value <= 0)) {
         endGame();
     }
 }
@@ -124,14 +121,53 @@ function addLogMessage(statName) {
         strength: "乐队的成员疏于练习，渐渐忘记了演奏的技巧，连最初的曲子都无法弹奏了，最后大家都不来排练了。",
         money: "你们穷的叮当响，根本付不起搞音乐的钱，甚至连维持正常生活都成了问题，乐队成员们都去打工了，没人记得要排练的事情。",
         stability: "你们大吵了一架，乐手们互相指责，最后爆发了一场巨大的冲突......乐队的成员从来就没有因为玩乐队而开心过。",
-        popularity: "没人关注你们，网络上都是你们的黑粉，你们的音乐再好别人也不会在乎了。"
+        popularity: "没人关注你们，网络上都是你们的黑粉，你们的音乐再好别人也不会在乎了。",
+        gameEnd: "游戏结束！"
     };
 
+    // 获取日志列表区域
     const logList = document.getElementById("log-list");
+
+    // 创建新的日志条目
     const logItem = document.createElement("li");
+    logItem.classList.add('log-entry');
     logItem.textContent = logMessages[statName];
+
+    // 添加日志条目到日志列表
     logList.appendChild(logItem);
+
+    // 滚动到最新日志
+    logList.scrollTop = logList.scrollHeight;  // 滚动到日志区域的底部
 }
+
+// 游戏结束
+function endGame() {
+    // 游戏结束
+    // 记录游戏结束的日志信息
+    addLogMessage('gameEnd'); // 添加游戏结束的日志信息
+
+    // 隐藏卡牌选择和其他游戏元素
+    const cardDisplay = document.getElementById("card-display");
+    const buttons = document.querySelectorAll(".buttons button");
+    cardDisplay.style.display = "none";  // 隐藏卡牌显示
+    buttons.forEach(button => button.disabled = true); // 禁用选择按钮
+
+    // 获取日志区域
+    const logMessages = document.querySelector(".log-messages");
+
+    // 创建重新开始按钮
+    const restartButton = document.createElement("button");
+    restartButton.textContent = "重新开始";
+    restartButton.classList.add("restart-button"); // 添加自定义样式
+    logMessages.appendChild(restartButton);  // 将按钮添加到日志区
+
+    // 给“重新开始”按钮添加点击事件
+    restartButton.addEventListener("click", () => {
+        window.location.href = "index.html";  // 跳转到 index.html，重新开始游戏
+    });
+}
+
+
 
 // 处理玩家选择
 function handleChoice(option) {
@@ -148,11 +184,7 @@ function handleChoice(option) {
     updateStatus(); // 这里会触发检查是否有数值降到0
 }
 
-// 游戏结束
-function endGame() {
-    alert("游戏结束！乐队的四个维度都降到0了。");
-    // 你可以在这里做一些额外的清理工作，例如重置游戏状态等
-}
+
 
 // 初始化游戏
 function startGame() {
