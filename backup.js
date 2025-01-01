@@ -142,11 +142,29 @@ function addLogMessage(statName) {
 
 // 游戏结束
 function endGame() {
+    // 游戏结束
     // 记录游戏结束的日志信息
     addLogMessage('gameEnd'); // 添加游戏结束的日志信息
 
-    // 你可以在这里做一些额外的清理工作，例如重置游戏状态等
-    // 游戏结束时，禁用卡牌操作或进行其他清理
+    // 隐藏卡牌选择和其他游戏元素
+    const cardDisplay = document.getElementById("card-display");
+    const buttons = document.querySelectorAll(".buttons button");
+    cardDisplay.style.display = "none";  // 隐藏卡牌显示
+    buttons.forEach(button => button.disabled = true); // 禁用选择按钮
+
+    // 获取日志区域
+    const logMessages = document.querySelector(".log-messages");
+
+    // 创建重新开始按钮
+    const restartButton = document.createElement("button");
+    restartButton.textContent = "重新开始";
+    restartButton.classList.add("restart-button"); // 添加自定义样式
+    logMessages.appendChild(restartButton);  // 将按钮添加到日志区
+
+    // 给“重新开始”按钮添加点击事件
+    restartButton.addEventListener("click", () => {
+        window.location.href = "index.html";  // 跳转到 index.html，重新开始游戏
+    });
 }
 
 
