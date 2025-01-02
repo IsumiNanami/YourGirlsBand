@@ -310,14 +310,14 @@ export const liveCards = [
     {
         text: "也许我该...",
         options: [
-            { effect: { event: "live", if_last: 0, stage: 12, strength: -100, money: 0, stability: 5, popularity: 5 }, text: "来段炸裂的Solo" },
-            { effect: { event: "live", if_last: 0, stage: 12, strength: -5, money: -2, stability: -5, popularity: -20 }, text: "混过去吧..." }
+            { effect: { event: "live", if_last: 0, stage: 12, strength: -30, money: 0, stability: 5, popularity: 5 }, text: "来段炸裂的Solo" },
+            { effect: { event: "live", if_last: 0, stage: 12, strength: -15, money: -2, stability: -5, popularity: -20 }, text: "混过去吧..." }
         ]
     },
     {
         text: "Live 有惊无险的结束了",
         options: [
-            { effect: { event: "live", if_last: 1, stage: 13, strength: +35, money: 2, stability: 2, popularity: 2, live: 1 }, text: "少女乐队大胜利！" },
+            { effect: { event: "live", if_last: 1, stage: 13, strength: +40, money: 2, stability: 2, popularity: 2, live: 1 }, text: "少女乐队大胜利！" },
             { effect: { event: "live", if_last: 1, stage: 13, strength: -1, money: -1, stability: -1, popularity: -1 }, text: "下次不来了..." }
         ]
     }
