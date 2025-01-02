@@ -41,6 +41,7 @@ function updateMoney() {
 
 // 为克隆的图片添加点击事件的函数
 function addRemoveEventToImage(img, cost, card) {
+  console.log(selectedMembers);
   img.addEventListener('click', () => {
     const parentSlot = img.parentElement; // 获取图片的父元素（即卡槽）
     parentSlot.removeChild(img); // 从卡槽中移除该图片
@@ -58,7 +59,7 @@ function addRemoveEventToImage(img, cost, card) {
 cardElements.forEach(card => {
   card.addEventListener('click', () => {
     const cardCost = parseInt(card.getAttribute('data-cost'));
-
+    
     // 检查卡片是否已经被选中
     if (card.getAttribute('data-selected') === 'true') {
       alert('该乐手已经被选中！');
@@ -78,6 +79,7 @@ cardElements.forEach(card => {
         // 设置卡片为已选中
         card.setAttribute('data-selected', 'true');
         card.setAttribute('data-name', card.querySelector('.name').textContent); // 存储乐手名称
+        
 
         // 将成员添加到已选成员数组
         selectedMembers.push({
@@ -86,8 +88,13 @@ cardElements.forEach(card => {
           cost: cardCost,
           imgSrc: card.querySelector('img').src,
           lyricist: card.getAttribute('data-lyricist') === 'true', // 保存作词能力
-          composer: card.getAttribute('data-composer') === 'true'  // 保存编曲能力
+          composer: card.getAttribute('data-composer') === 'true',  // 保存编曲能力
+          statusInstrument: parseInt(card.getAttribute('status-instrument')),
+          statusSongmaking: parseInt(card.getAttribute('status-songmaking')),
+          characteristics: card.getAttribute('characteristic')
         });
+        
+        
 
         addRemoveEventToImage(cardImage, cardCost, card); // 为新添加的图片添加点击事件
       }
@@ -171,6 +178,7 @@ submitButton.addEventListener('click', () => {
 
     // 将已选择的成员存储到 localStorage 或 URL
     localStorage.setItem('selectedBandMembers', JSON.stringify(selectedMembers));
+    localStorage.setItem('remainingMoney', remainingMoney);
 
     // 跳转到新的页面
     window.location.href = 'bandPage.html';  // 新页面

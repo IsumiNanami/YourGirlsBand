@@ -313,7 +313,7 @@ export const liveCards = [
             { effect: { event: "live", if_last: 0, stage: 12, strength: -30, money: 0, stability: 5, popularity: 5 }, text: "来段炸裂的Solo" },
             { effect: { event: "live", if_last: 0, stage: 12, strength: -15, money: -2, stability: -5, popularity: -20 }, text: "混过去吧..." }
         ]
-    },
+    }, 
     {
         text: "Live 有惊无险的结束了",
         options: [

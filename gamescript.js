@@ -1,18 +1,17 @@
 import { cards, festivalCards, liveCards } from './cards.js';
+let bandStatus = JSON.parse(localStorage.getItem('bandStatus'));
+if (bandStatus) {
+    console.log('Band Status:', bandStatus);
+} else {
+console.error('Band Status not found in localStorage');
+}
 
 // 游戏状态初始化
 let month = 1;
 let perform_song = "";
-let special_event = ""
+let special_event = "";
 let usedCardsIn10Months = [];
-let bandStatus = {
-    strength: 10,
-    money: 10,
-    stability: 10,
-    popularity: 10,
-    songCount: 0,  // 新增单曲计数
-    songs: [],      // 新增曲库
-};
+
 
 // 存储已记录的日志，以避免重复记录
 let loggedStats = new Set();
@@ -94,6 +93,7 @@ function getRandomCard() {
 
 // 显示卡牌内容
 function displayCard(card) {
+    
 
     //展示学园祭卡组
     if (festivalCards.includes(card)){

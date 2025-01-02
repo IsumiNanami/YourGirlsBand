@@ -17,9 +17,23 @@
       <h3>已选择的乐队成员</h3>
       <div class="band-member-row" id="bandMembers"></div>
     </div>
-    <button id="start-game-btn">开始游戏</button>
+    
+    <button id="start-game-btn">开始游戏</button>   
   </div>
-  <!-- 引入 bandshow.js 脚本 -->
+  
+  <div class="result-container">
+    <!-- 雷达图部分 -->
+    <div class="radar-chart-container">
+      <canvas id="radarChart"></canvas>
+    </div>
+    <!-- 提示信息部分 -->
+    <div class="bond-display-container">
+      <div class="bond-display"></div>
+    </div>
+  </div> 
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <script src="bandshow.js"></script>
+  
 </body>
 </html>

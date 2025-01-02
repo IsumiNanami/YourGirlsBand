@@ -272,3 +272,34 @@ footer.band-container .drop-zone .slot img {
 #start-game-btn:hover {
   background-color: #45a049;
 }
+
+/* 容器设置 */
+.result-container {
+  display: flex;
+  flex-direction: column; /* 将子元素垂直排列 */
+  justify-content: center; /* 垂直方向居中 */
+  align-items: center; /* 水平方向居中 */
+  text-align: center; /* 使标题和按钮都居中 */
+  max-width: 1000px;
+  margin: 20px auto;
+  padding: 20px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* 雷达图部分 */
+.radar-chart-container {
+  width: 48%; /* 左半部分 */
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+/* 提示信息部分 */
+.bond-display-container {
+  width: 48%; /* 右半部分 */
+  padding: 10px;
+  box-sizing: border-box;
+  background-color: #f5ece7;
+  border-radius: 8px;
+}
