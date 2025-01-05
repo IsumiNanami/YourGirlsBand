@@ -18,7 +18,7 @@ export const cards = [
         text: "好想去旅游啊！", 
         options: [
             { effect: { event: "none", strength: 0, money: -5, stability: 3, popularity: 1 }, text: "走吧走吧！" }, 
-            { effect: { event: "none", strength: 0, money: 1, stability: -2, popularity: 0 }, text: "我不喜欢到处走" }
+            { effect: { event: "none", strength: 0, money: 2, stability: -2, popularity: 0 }, text: "我不喜欢到处走" }
         ] 
     },
     { 
@@ -50,7 +50,7 @@ export const cards = [
         ] 
     },
     { 
-        text: "是时候录制一首单曲了！", 
+        text: "是时候自费录制一首单曲了！", 
         options: [
             { effect: { event: "none", strength: 3, money: -3, stability: 3, popularity: 3 }, text: "终于到这一天了吗" }, 
             { effect: { event: "none", strength: 0, money: 1, stability: 0, popularity: -2 }, text: "还早呢" }
@@ -172,6 +172,160 @@ export const cards = [
             { effect: { event: "none", strength: 1, money: 0, stability: -1, popularity: -2 }, text: "我没空" }
         ] 
     },
+];
+
+export const studioAppendCards = [
+    // 新增的卡片
+    { 
+        text: "签约事务所了，我今晚想吃烤肉！", 
+        options: [
+            { effect: { event: "none", strength: 1, money: -4, stability: 2, popularity: 0 }, text: "烤肉！今晚一定要吃！" }, 
+            { effect: { event: "none", strength: 0, money: 0, stability: -2, popularity: 0 }, text: "要注意饮食管理" }
+        ] 
+    },
+    { 
+        text: "也是时候把贝斯全换了！", 
+        options: [
+            { effect: { event: "none", strength: 3, money: -6, stability: 2, popularity: 2 }, text: "升级装备！" }, 
+            { effect: { event: "none", strength: -1, money: 0, stability: -2, popularity: 0 }, text: "不行" }
+        ] 
+    },
+    { 
+        text: "也是时候买更多效果器了！", 
+        options: [
+            { effect: { event: "none", strength: 2, money: -6, stability: 2, popularity: 0 }, text: "升级装备，提升实力！" }, 
+            { effect: { event: "none", strength: -1, money: 1, stability: -2, popularity: 0 }, text: "算了，还是先节省吧" }
+        ] 
+    },
+    { 
+        text: "我...我老是忍不住自搜", 
+        options: [
+            { effect: { event: "none", strength: -2, money: 0, stability: -6, popularity: 4 }, text: "搜吧搜吧！我们是名人了！" }, 
+            { effect: { event: "none", strength: 2, money: 0, stability: -2, popularity: -4 }, text: "克制自己的认可欲怪兽" }
+        ] 
+    },
+    { 
+        text: "我们要以成为职业为目标吗？", 
+        options: [
+            { effect: { event: "none", strength: 0, money: 0, stability: -3, popularity: -5 }, text: "不觉得有点沉重吗？" }, 
+            { effect: { event: "none", strength: 0, money: -4, stability: 1, popularity: 2}, text: "要的！只有这一条路" }
+        ] 
+    },
+    { 
+        text: "事务所发工资了！", 
+        options: [
+            { effect: { event: "none", strength: 0, money: 5, stability: 0, popularity: 0 }, text: "太好了！" }, 
+            { effect: { event: "none", strength: 0, money: 5, stability: 0, popularity: 0 }, text: "太好了！" }
+        ] 
+    },
+    { 
+        text: "也许我们辍学比较好...我不喜欢有退路的感觉", 
+        options: [
+            { effect: { event: "none", strength: 1, money: -3, stability: -5, popularity: 5 }, text: "你说的对" }, 
+            { effect: { event: "none", strength: -3, money: 0, stability: 1, popularity: -3}, text: "你说的错" }
+        ] 
+    },
+    { 
+        text: "事务所通知我们要进行Live演出了！和期末考试撞车怎么办", 
+        options: [
+            { effect: { event: "none", strength: 2, money: 2, stability: -6, popularity: 2 }, text: "翘课准备！" }, 
+            { effect: { event: "none", strength: -1, money: -4, stability: 0, popularity: -10}, text: "随便演奏下好了" }
+        ] 
+    },
+    { 
+        text: "事务所联络我们，让我们注意身材管理！", 
+        options: [
+            { effect: { event: "none", strength: 0, money: -4, stability: -2, popularity: 2 }, text: "说的没错" }, 
+            { effect: { event: "none", strength: 0, money: 0, stability: 1, popularity: -4 }, text: "乐队和身材有什么关系？" }
+        ] 
+    },
+    { 
+        text: "那些唱跳的偶像，看着也很不错呢...", 
+        options: [
+            { effect: { event: "none", strength: -3, money: 0, stability: 1, popularity: 1 }, text: "给人带来温暖和希望！" }, 
+            { effect: { event: "none", strength: 0, money: 0, stability: 0, popularity: -3}, text: "跟摇滚没半毛钱关系" }
+        ] 
+    },
+];
+
+export const UStudentAppendCards = [
+    {
+        text: "早八上课了，我好困……",
+        options: [
+            { effect: { event: "none", strength: -2, money: 0, stability: 0, popularity: 0 }, text: "坚持上课，学习第一！" },
+            { effect: { event: "none", strength: 2, money: 0, stability: -2, popularity: 0 }, text: "翘课去练乐队吧！" }
+        ]
+    },
+    {
+        text: "大学里乐队还蛮多的，不过我们是最强的那一个！",
+        options: [
+            { effect: { event: "none", strength: 0, money: 0, stability: 1, popularity: 1 }, text: "自信爆棚！" },
+            { effect: { event: "none", strength: 0, money: 0, stability: -1, popularity: -1 }, text: "低调点。" }
+        ]
+    },
+    {
+        text: "学园祭再也参加不了了，还是有点怀念。",
+        options: [
+            { effect: { event: "none", strength: 0, money: 0, stability: 2, popularity: 0 }, text: "好想再参加一次学园祭" },
+            { effect: { event: "none", strength: 1, money: 2, stability: 1, popularity: 1 }, text: "未来的舞台会更大" }
+        ]
+    },
+    {
+        text: "期末周复习！乐队活动我想请个假～",
+        options: [
+            { effect: { event: "none", strength: -4, money: 0, stability: -2, popularity: -1 }, text: "学业优先，暂停排练" },
+            { effect: { event: "none", strength: 2, money: 1, stability: -2, popularity: 1 }, text: "先练乐队吧，考试随缘" }
+        ]
+    },
+    {
+        text: "寒假一起去北海道滑雪吧！",
+        options: [
+            { effect: { event: "none", strength: 0, money: -6, stability: 2, popularity: 1 }, text: "滑雪放松！" },
+            { effect: { event: "none", strength: 2, money: 4, stability: 0, popularity: 0 }, text: "省钱练习，寒假也不休息" }
+        ]
+    },
+    {
+        text: "作为大学生，我们应该创造更成熟的音乐。",
+        options: [
+            { effect: { event: "none", strength: 2, money: -2, stability: 0, popularity: 0 }, text: "写点深度的东西吧！" },
+            { effect: { event: "none", strength: -4, money: 1, stability: 0, popularity: 3 }, text: "不，简单的才是流行！" }
+        ]
+    },
+    {
+        text: "抱歉，帮我签个到吧！这节课不去了",
+        options: [
+            { effect: { event: "none", strength: 0, money: 1, stability: -1, popularity: 1 }, text: "好呀～" },
+            { effect: { event: "none", strength: 0, money: 0, stability: 1, popularity: -1 }, text: "凭什么" }
+        ]
+    },
+    {
+        text: "饭堂好难吃，我们去聚个餐吧。",
+        options: [
+            { effect: { event: "none", strength: 0, money: -4, stability: 2, popularity: 0 }, text: "好啊，改善伙食！" },
+            { effect: { event: "none", strength: 1, money: 2, stability: 0, popularity: 0 }, text: "省钱继续吃饭堂吧。" }
+        ]
+    },
+    {
+        text: "为什么我们没有恋爱话题呢？",
+        options: [
+            { effect: { event: "none", strength: 2, money: 2, stability: 0, popularity: 0 }, text: "音乐就是我的恋爱话题" },
+            { effect: { event: "none", strength: 0, money: 0, stability: 2, popularity: 2 }, text: "这就是Girls Band!" }
+        ]
+    },
+    {
+        text: "大学里的前辈说想让我们帮忙给晚会贡献个节目，有劳务的",
+        options: [
+            { effect: { event: "none", strength: 0, money: 4, stability: 0, popularity: 1 }, text: "好啊！我来！" },
+            { effect: { event: "none", strength: 2, money: 0, stability: 0, popularity: 0 }, text: "这种不值得我们出手" }
+        ]
+    },
+    {
+        text: "在宿舍里练琴怕吵到室友",
+        options: [
+            { effect: { event: "none", strength: -3, money: 0, stability: 1, popularity: 1 }, text: "小声点就好啦" },
+            { effect: { event: "none", strength: 2, money: 0, stability: -2, popularity: -2 }, text: "给他们听是他们的荣幸" }
+        ]
+    }
 ];
 
 
@@ -322,5 +476,74 @@ export const liveCards = [
         ]
     }
 ];
+
+export const studioCards = [
+    {
+        text: "上次的Live，你们很不错呢！",
+        options: [
+            { effect: { event: "studio", if_last: 0, stage: 0, strength: 0, money: 0, stability: 0, popularity: 0 }, text: "你是？" },
+            { effect: { event: "studio", if_last: 0, stage: 0, strength: 0, money: 0, stability: 0, popularity: 0 }, text: "你是？" }
+        ]
+    },
+    {
+        text: "我是武田事务所的青山",
+        options: [
+            { effect: { event: "studio", if_last: 0, stage: 1, strength: 0, money: 0, stability: 0, popularity: 0 }, text: "太好了是事务所我们有救了！" },
+            { effect: { event: "studio", if_last: 0, stage: 1, strength: 0, money: 0, stability: 0, popularity: 0 }, text: "你想做什么？" }
+        ]
+    },
+    {
+        text: "上次你们的表演给我留下了很深刻的印象！",
+        options: [
+            { effect: { event: "studio", if_last: 0, stage: 2, strength: 0, money: 0, stability: 0, popularity: 0 }, text: "嘿嘿...多谢夸奖" },
+            { effect: { event: "studio", if_last: 0, stage: 2, strength: 0, money: 0, stability: 0, popularity: 0 }, text: "也许你只是在客套" }
+        ]
+    },
+    {
+        text: "总之，我想问问你们要不要和我们事务所签约",
+        options: [
+            { effect: { event: "studio", if_last: 0, stage: 3, strength: 0, money: 0, stability: 0, popularity: 0 }, text: "容我想想" },
+            { effect: { event: "studio", if_last: 0, stage: 3, strength: 0, money: 0, stability: 0, popularity: 0 }, text: "容我想想" }
+        ]
+    },
+    {
+        text: "我们会给你们发工资",
+        options: [
+            { effect: { event: "studio", if_last: 0, stage: 4, strength: 0, money: 0, stability: 0, popularity: 0 }, text: "是钱！我要用来买效果器！" },
+            { effect: { event: "studio", if_last: 0, stage: 4, strength: 0, money: 0, stability: 0, popularity: 0 }, text: "然后呢？" }
+        ]
+    },
+    {
+        text: "但是你们需要按照合同要求进行活动",
+        options: [
+            { effect: { event: "studio", if_last: 0, stage: 5, strength: 0, money: 0, stability: 0, popularity: 0 }, text: "也许这不重要" },
+            { effect: { event: "studio", if_last: 0, stage: 5, strength: 0, money: 0, stability: 0, popularity: 0 }, text: "你限制了我们的自由" }
+        ]
+    },
+    {
+        text: "要求不会太苛刻，会尊重你们的意愿",
+        options: [
+            { effect: { event: "studio", if_last: 0, stage: 6, strength: 0, money: 0, stability: 0, popularity: 0 }, text: "少女乐队该进化了！" },
+            { effect: { event: "studio", if_last: 0, stage: 6, strength: 0, money: 0, stability: 0, popularity: 0 }, text: "以后就不一定了..." }
+        ]
+    },
+    {
+        text: "那么现在到了选择的时间～",
+        options: [
+            { effect: { event: "studio", if_last: 1, stage: 7, strength: 0, money: 10, stability: 0, popularity: 0, studio: 1 }, text: "我选择签约！" },
+            { effect: { event: "studio", if_last: 1, stage: 7, strength: 0, money: -10, stability: 0, popularity: 0 }, text: "我选择不签约！" }
+        ]
+    }
+];
+    
+export const graduateCards = [
+    {
+        text: "时光荏苒，在参加了三次学园祭后，我们毕业了。我们的前途未卜...",
+        options: [
+            { effect: { event: "graduate", strength: 0, money: 0, stability: 0, popularity: 0, university: 1 }, text: "选择升学！" },
+            { effect: { event: "graduate", strength: 0, money: 0, stability: 0, popularity: 0, nouniversity: 1 }, text: "选择不升学！" }
+        ]
+    }
+]
 
 

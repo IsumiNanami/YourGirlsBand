@@ -33,9 +33,25 @@ let deltastability = 0;
 let deltamoney = 0;
 let deltapopularity = 0;
 
+let bassCount = 0;
+let drumCount = 0
+
 bandMembers.forEach(member => {
   totalInstrument += parseInt(member.statusInstrument);  // 计算所有成员的 status-instrument 总和
   totalSongmaking += parseInt(member.statusSongmaking);  // 计算所有成员的 status-songmaking 总和
+
+  const roles = member.role.split(','); // 以逗号分隔
+  console.log("roles", roles);
+  roles.forEach(char => {
+    if (char === "Bass") {
+      bassCount++;
+    }
+    if (char === "Drum") {
+      drumCount++;
+    }
+  });
+  console.log("basscount", bassCount);
+  console.log("drumcount", drumCount);
 
   const characteristics = member.characteristics.split(','); // 以逗号分隔
 
@@ -71,17 +87,23 @@ bandMembers.forEach(member => {
   console.log(parseInt(member.statusInstrument));
 });
 
-const strength = Math.round(totalInstrument * 0.35 + totalSongmaking * 0.15);  // strength 的计算公式y
-console.log(totalInstrument, totalSongmaking);
-const money = 11 + remainingMoneyValue + deltamoney;
-const stability = 11 + deltastability;
-const popularity = 10 + deltapopularity;
+let strength = Math.round(totalInstrument * 0.35 + totalSongmaking * 0.15);  // strength 的计算公式y
+let money = 11 + remainingMoneyValue + deltamoney;
+let stability = 11 + deltastability;
+let popularity = 10 + deltapopularity;
 
 // 输出计算结果
 console.log(`Strength: ${strength}`);
 console.log(`Money: ${money}`);
 console.log(`Stability: ${stability}`);
 console.log(`Popularity: ${popularity}`);
+
+if (bassCount>1){
+  strength = strength -3;
+}
+if (drumCount>1){
+  strength = strength -3;
+}
 
 let bandStatus = {
   strength: strength,
@@ -124,7 +146,7 @@ function handleBonds() {
   if (characteristicCounts.drinker >= 2) {
     bondText.push("双酒鬼羁绊：你们的队伍酒仙为伴，豪饮是你们的日常。");
     strengthChange += 1;
-    stabilityChange += 2;
+    stabilityChange += 1;
     moneyChange -= 2;
   }
   if (characteristicCounts.shekong >= 2) {
@@ -134,11 +156,11 @@ function handleBonds() {
   }
   if (characteristicCounts.yasashi >= 2) {
     bondText.push("温柔之乡：你们的队伍有好多妈妈桑！");
-    stabilityChange += 2;
+    stabilityChange += 1;
   }
   if (characteristicCounts.adult >= 3) {
     bondText.push("不登校：你们的队伍学历有点低啊...");
-    strengthChange += 1;
+    strengthChange += 2;
     stabilityChange -= 1;
     moneyChange -= 1;
   }
@@ -176,6 +198,12 @@ function handleBonds() {
 }
 
 handleBonds();
+
+// 输出计算结果
+console.log(`Adjusted Strength: ${bandStatus.strength}`);
+console.log(`Adjusted Money: ${bandStatus.money}`);
+console.log(`Adjusted Stability: ${ bandStatus.stability}`);
+console.log(`Adjusted Popularity: ${bandStatus.popularity}`);
 
 // 创建雷达图的数据
 const radarData = {
