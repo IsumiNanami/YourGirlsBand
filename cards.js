@@ -22,13 +22,6 @@ export const cards = [
         ] 
     },
     { 
-        text: "考试要来不及复习了，要不办一场学习会吧！", 
-        options: [
-            { effect: { event: "none", strength: -2, money: -1, stability: 1, popularity: -1 }, text: "我们一起加油～" }, 
-            { effect: { event: "none", strength: 1, money: 1, stability: -3, popularity: 0 }, text: "自己学就好了" }
-        ] 
-    },
-    { 
         text: "一起去听音乐会吧！", 
         options: [
             { effect: { event: "none", strength: 2, money: -2, stability: 1, popularity: 0 }, text: "真的吗，什么时候" }, 
@@ -106,13 +99,6 @@ export const cards = [
         ] 
     },
     { 
-        text: "学习好累，有的时候我觉得不想去学校了，全职搞音乐多好", 
-        options: [
-            { effect: { event: "none", strength: 2, money: -3, stability: -3, popularity: 3 }, text: "很有建设性的意见" }, 
-            { effect: { event: "none", strength: 0, money: 0, stability: 0, popularity: 0 }, text: "你想当中专乐队？" }
-        ] 
-    },
-    { 
         text: "你说，我们要更注重乐队的影响力，还是专注于产出自己喜欢的歌曲？", 
         options: [
             { effect: { event: "none", strength: 0, money: 2, stability: 0, popularity: 2 }, text: "影响力" }, 
@@ -174,6 +160,30 @@ export const cards = [
     },
 ];
 
+export const HStudentAppendCards = [
+    { 
+        text: "考试要来不及复习了，要不办一场学习会吧！", 
+        options: [
+            { effect: { event: "none", strength: -2, money: -1, stability: 1, popularity: -1 }, text: "我们一起加油～" }, 
+            { effect: { event: "none", strength: 1, money: 1, stability: -3, popularity: 0 }, text: "自己学就好了" }
+        ] 
+    },
+    { 
+        text: "考试要来不及复习了，要不办一场学习会吧！", 
+        options: [
+            { effect: { event: "none", strength: -2, money: -1, stability: 1, popularity: -1 }, text: "我们一起加油～" }, 
+            { effect: { event: "none", strength: 1, money: 1, stability: -3, popularity: 0 }, text: "自己学就好了" }
+        ] 
+    },
+    { 
+        text: "学习好累，有的时候我觉得不想去学校了，全职搞音乐多好", 
+        options: [
+            { effect: { event: "none", strength: 2, money: -3, stability: -3, popularity: 3 }, text: "很有建设性的意见" }, 
+            { effect: { event: "none", strength: 0, money: 0, stability: 0, popularity: 0 }, text: "你想当中专乐队？" }
+        ] 
+    }
+];
+
 export const studioAppendCards = [
     // 新增的卡片
     { 
@@ -219,16 +229,9 @@ export const studioAppendCards = [
         ] 
     },
     { 
-        text: "也许我们辍学比较好...我不喜欢有退路的感觉", 
+        text: "事务所通知我们要进行Live演出了！", 
         options: [
-            { effect: { event: "none", strength: 1, money: -3, stability: -5, popularity: 5 }, text: "你说的对" }, 
-            { effect: { event: "none", strength: -3, money: 0, stability: 1, popularity: -3}, text: "你说的错" }
-        ] 
-    },
-    { 
-        text: "事务所通知我们要进行Live演出了！和期末考试撞车怎么办", 
-        options: [
-            { effect: { event: "none", strength: 2, money: 2, stability: -6, popularity: 2 }, text: "翘课准备！" }, 
+            { effect: { event: "none", strength: 2, money: 2, stability: -6, popularity: 2 }, text: "认真准备！" }, 
             { effect: { event: "none", strength: -1, money: -4, stability: 0, popularity: -10}, text: "随便演奏下好了" }
         ] 
     },
@@ -327,6 +330,73 @@ export const UStudentAppendCards = [
         ]
     }
 ];
+
+export const NStudentAppendCards = [
+    {
+        text: "打工的日子好累啊，练习的时间又少了。",
+        options: [
+            { effect: { event: "none", strength: -1, money: 2, stability: -1, popularity: 0 }, text: "攒钱买琴" },
+            { effect: { event: "none", strength: 1, money: -2, stability: 0, popularity: 1 }, text: "还是练习重要" }
+        ]
+    },
+    {
+        text: "我们可以尝试街头演出赚点生活费！",
+        options: [
+            { effect: { event: "none", strength: 1, money: 3, stability: -3, popularity: 2 }, text: "好主意！" },
+            { effect: { event: "none", strength: -1, money: 0, stability: 1, popularity: 0 }, text: "还是算了吧" }
+        ]
+    },
+    {
+        text: "酒吧里有人邀请我们去驻唱，但要求曲风很商业化。",
+        options: [
+            { effect: { event: "none", strength: -3, money: 5, stability: 0, popularity: 1 }, text: "为生活低头吧" },
+            { effect: { event: "none", strength: 0, money: -2, stability: 1, popularity: -1 }, text: "我们不改曲风！" }
+        ]
+    },
+    {
+        text: "乐队的设备又坏了……",
+        options: [
+            { effect: { event: "none", strength: -2, money: 0, stability: -2, popularity: 0 }, text: "用旧设备将就着用" },
+            { effect: { event: "none", strength: 1, money: -5, stability: 1, popularity: 0 }, text: "省吃俭用先修好吧" }
+        ]
+    },
+    {
+        text: "总有亲戚说玩乐队没前途，应该找份正式工作...",
+        options: [
+            { effect: { event: "none", strength: -5, money: 2, stability: -3, popularity: -1 }, text: "也许可以找份兼职" },
+            { effect: { event: "none", strength: 2, money: 0, stability: 1, popularity: 1 }, text: "不鸟他们" }
+        ]
+    },
+    {
+        text: "乐队成员因为练习时间不统一而闹矛盾",
+        options: [
+            { effect: { event: "none", strength: -4, money: 0, stability: -5, popularity: 0 }, text: "我不要你觉得，我要我觉得" },
+            { effect: { event: "none", strength: -2, money: 0, stability: -1, popularity: -1 }, text: "冷静" }
+        ]
+    },
+    {
+        text: "家里人对我说，如果退出乐队就帮我安排一份好工作",
+        options: [
+            { effect: { event: "none", strength: -4, money: 3, stability: -3, popularity: -1 }, text: "好像有点吸引力" },
+            { effect: { event: "none", strength: 2, money: -6, stability: 2, popularity: 2 }, text: "这就想让我动摇？" }
+        ]
+    },
+    {
+        text: "一个朋友想借我们乐队的设备去演出",
+        options: [
+            { effect: { event: "none", strength: -3, money: 1, stability: 1, popularity: 1 }, text: "借给他们吧" },
+            { effect: { event: "none", strength: 0, money: 2, stability: -3, popularity: -2 }, text: "不想冒风险" }
+        ]
+    },
+    {
+        text: "每次看别人上大学的生活总会感到羡慕……",
+        options: [
+            { effect: { event: "none", strength: -3, money: 0, stability: -3, popularity: 2 }, text: "也许我错过了什么" },
+            { effect: { event: "none", strength: 0, money: 0, stability: 2, popularity: 0 }, text: "乐队才是我的大学" }
+        ]
+    }
+];
+
 
 
 // 学园祭卡牌集

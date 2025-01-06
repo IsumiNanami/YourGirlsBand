@@ -1,4 +1,4 @@
-import { cards, festivalCards, liveCards, studioCards, studioAppendCards, UStudentAppendCards, graduateCards} from './cards.js';
+import { cards, festivalCards, liveCards, studioCards, studioAppendCards, HStudentAppendCards, UStudentAppendCards, NStudentAppendCards, graduateCards} from './cards.js';
 let bandStatus = JSON.parse(localStorage.getItem('bandStatus'));
 if (bandStatus) {
     console.log('Band Status:', bandStatus);
@@ -87,10 +87,17 @@ function getRandomCard() {
     if (is_studio === 1) {
         combinedCards = [...cards, ...studioAppendCards]; // 合并普通卡组和 studioAppendCards
     }
-
+    
     // 判断是否需要将 studioAppendCards 并入普通卡组
-    if (is_UStudent === 1) {
+    if (is_HStudent === 1){
+        combinedCards = [...combinedCards, ...HStudentAppendCards]; // 合并普通卡组和 ppendCards
+    }
+    else if (is_UStudent === 1) {
         combinedCards = [...combinedCards, ...UStudentAppendCards]; // 合并普通卡组和 ppendCards
+    } 
+    else if (is_NStudent === 1){
+        // 判断是否需要将 studioAppendCards 并入普通卡
+        combinedCards = [...combinedCards, ...NStudentAppendCards]; // 合并普通卡组和 ppendCards
     }
 
     const remainingCards = combinedCards.filter(card => !usedCardsIn10Months.includes(card));
@@ -294,6 +301,13 @@ function addLogMessage(statName, songName = "") {
         stability_exceed: "我们从没有吵过架，每天的乐队生活都带着微笑假面，组一辈子乐队的誓言好像要实现了......",
         popularity_exceed: "太多人关注我们了，每天都有人跟拍，压力太大成员们开始靠尼古丁缓解精神压力。一次偷拍结束了我们的职业生涯。",
 
+        //graduate endings 
+        graduate_end_0: "我们的乐队一直没什么成果，偶然间我们发现虚拟主播更受欢迎。于是大家都纷纷转型了，每天直播打打游戏唱唱歌，生活也还算不错。只是乐队成为了我们无数个回忆中最不起眼的一个",
+        graduate_end_1: "稳定的经营乐队并没给我们带来更好的未来，但偶然间我发现我们有经理金钱的才能。于是我们开始投资股市、期货、比特币。一次巨大的股灾让我们走向了天台......",
+        graduate_end_2: "生活一直没什么起色，最后乐队的大家都找个班上了。30多岁的某一天，我发现工友们也弹吉他。酒桌上表演了一段《杀死那个东京人》，我的心里五味杂陈......",
+        graduate_end_3: "乐队渐渐归于平淡，每天的排练好像公式，生活的压力越来越大，我意识到不能再这样下去了。终于有一天，我卖掉了琴。也许这样是最好的吧......我不清楚，但我的心里有什么东西永远碎掉了。",
+        
+
         //ending output
         gameEnd: "乐队解散！",
 
@@ -364,28 +378,37 @@ function updateStatus() {
             if ((statusElement.elementId === "strength") && (special_event === "live")){
                 console.log("test");
                 addLogMessage("strength_live");
-
+                endGame();
             }
             else {
                 addLogMessage(statusElement.name);  // 记录日志
-            loggedStats.add(statusElement.name); // 确保每个属性只有第一次降到0时记录一次日志
+                loggedStats.add(statusElement.name); // 确保每个属性只有第一次降到0时记录一次日志
+                endGame();
             }
         }
         if (value >= 100) {
             console.log(statusElement.elementId, special_event);
             const exceedMessageKey = `${statusElement.name}_exceed`;
             addLogMessage(exceedMessageKey,""); // 记录超限日志
+            endGame();
+        }
+        if (month >= 400 && is_NStudent == 1) {
+            let randomIndex = Math.floor(Math.random() * 4);
+            if (randomIndex===0){
+                addLogMessage("graduate_end_0");
+            } 
+            if (randomIndex===1){
+                addLogMessage("graduate_end_1");
+            } 
+            if (randomIndex===2){
+                addLogMessage("graduate_end_2");
+            } 
+            if (randomIndex===3){
+                addLogMessage("graduate_end_3");
+            } 
+            endGame();
         }
     });
-
-    // 检查是否有任何维度降到0
-    if (statusElements.some(stat => stat.value <= 0)) {
-        endGame();
-    }
-    // 检查是否有任何维度降到0
-    else if (statusElements.some(stat => stat.value >= 100)) {
-        endGame();
-    }
 }
 
 // 初始化游戏
